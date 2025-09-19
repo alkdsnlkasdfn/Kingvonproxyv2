@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home | Schoology</title>
+    <link rel="icon" type="image/x-icon" href="PowerSchoolLogos_Vertical-01.png">
+    <script src="/uv/uv.bundle.js"></script>
+    <script src="/uv/uv.config.js"></script>
+    <script src="/baremux/index.js"></script>
+    <script>
+        window.onbeforeunload = function(e) {
+          return 'Are you sure you want to leave this page?  You will lose any unsaved data.';
+        };
+    </script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        window.addEventListener("load", async () => {
+            await navigator.serviceWorker.register("/uv/sw.js");
+        });
+    }
+    </script>
+        <script>
+    document.onkeydown = function(e) {
+        if(e.keyCode == 123) {
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'S'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)){
+         return false;
+        }
+        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)){
+         return false;
+        }      
+     }
+     document.addEventListener('contextmenu', 
+
+        event => event.preventDefault() 
+
+    )
+     </script>
+     <script type="text/javascript">
+        function checkPswd() {
+            var confirmPassword = "00000";
+            var password = document.getElementById("pswd").value;
+            if (password == confirmPassword) {
+                document.getElementById("total").style.display = "block";
+                document.getElementById("tabBar").style.display = "flex";
+                document.getElementById("us").style.display = "none";
+                document.getElementById("he").style.display = "none";
+
+            }
+            else{
+                document.getElementById("n").style.display = "block";
+            }
+        }
+    </script>
+        <div id="us">
+        <img id="i" src="124138471_10157818254665933_5002802355620967700_o.avif" alt="King Von" width="100px" height="100px">
+        <p id="p">King Von Proxy V2</p>
+        <input type="password" id="pswd" placeholder="Enter password:">
+        <input id="s" type="button" value="Submit" onclick="checkPswd();" />
+        <p style="display: none;" id="n">Sorry! Incorrect password.</p>
+        </div>
+         <script>
+        // Function to load the theme from localStorage
+        function loadTheme() {
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme) {
+                document.body.classList.add(savedTheme);
+            } else {
+                document.body.classList.add('light-theme'); // Default theme
+            }
+        }
+
+        // Function to toggle between light and dark themes and save it to localStorage
+        function toggleTheme() {
+            const body = document.body;
+            if (body.classList.contains('light-theme')) {
+                body.classList.remove('light-theme');
+                body.classList.add('dark-theme');
+                localStorage.setItem('theme', 'dark-theme'); // Save theme to localStorage
+            } else {
+                body.classList.remove('dark-theme');
+                body.classList.add('light-theme');
+                localStorage.setItem('theme', 'light-theme'); // Save theme to localStorage
+            }
+        }
+
+        // Load the saved theme on page load
+        window.onload = loadTheme;
+    </script>
+    <style>
+        body{font: 1em Courier New;}
+        button {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+button:hover{
+  background: rgba(255, 0, 0, 0.226);
+}
+      #us {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+            #pswd{
+        font: 1em Courier New;
+        padding: 12px 20px;
+        margin: 8px 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 20px;
+          border:1px solid rgba(255, 255, 255, 0.18);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          text-align: center;
+          top: 400px;
+          left: 620px;
+      }
+      #pswd:hover{
+        background: rgba(255, 0, 0, 0.226);;
+      }
+      #s{
+        font: 1em Courier New;
+        padding: 12px 20px;
+        margin: 8px 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 20px;
+          border:1px solid rgba(255, 255, 255, 0.18);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          text-align: center;
+          top: 400px;
+          left: 870px;
+      }
+      #s:hover{
+        background: rgba(255, 0, 0, 0.226);
+      }
+      .theme-switcher:hover{background: rgba(255, 0, 0, 0.226);}
+                 #i{
+        font: 1em Courier New;
+        padding: 10px 10px;
+        margin: 0px 0px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 20px;
+          border:1px solid rgba(255, 255, 255, 0.18);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          text-align: center;
+          top: 257px;
+          left: 720px;
+          border-radius: 50%;
+      }
+            #n{
+        font: 1em Courier New;
+        color: red;
+        padding: 2px 20px;
+        margin: 8px 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 20px;
+          border:1px solid rgba(255, 255, 255, 0.18);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          text-align: center;
+          top: 447px;
+          left: 646px;
+          border-radius: 200px;
+      }
+      #p{
+        font: 1em Courier New;
+        padding: 2px 20px;
+        margin: 8px 0;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+          backdrop-filter: blur(10px);
+          -webkit-backdrop-filter: blur(10px);
+          border-radius: 20px;
+          border:1px solid rgba(255, 255, 255, 0.18);
+          box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+          text-align: center;
+          top: 372.5px;
+          left: 700px;
+          border-radius: 200px;
+      }
+      /* Light theme styles */
+        body.light-theme {
+          background-color: #ffffff;
+      }
+
+      /* Dark theme styles */
+      body.dark-theme {
+          background-color: #333333;
+      }
+        #tabBar {
+            display: none;
+            align-items: center;
+            gap: 6px;
+            padding: 6px;
+            background: #f4f4f4;
+            border-bottom: 1px solid #ccc;
+            font: 1em Courier New;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            width: 99%;
+            position: absolute;
+            left: 1px;
+            top: 1px;
+        }
+        .tab {
+            padding: 6px 10px;
+            border: 1px solid #aaa;
+            border-radius: 5px 5px 0 0;
+            background: #ddd;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+              background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+        .tab.active {
+  background: rgba(255, 0, 0, 0.226);
+        }
+                .tab:hover {
+  background: rgba(255, 0, 0, 0.226);
+        }
+        .tab input {
+        background: rgba(255, 0, 0, 0.226);
+        border-radius: 20px;
+        }
+        
+        .iframeWindow {
+            position: absolute;
+            width: 99.9%;
+            height: 93%;
+            border: 0;
+            padding: 0;
+            margin: 0;
+            left: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+            display: none; 
+        }
+        .iframeWindow.active {
+            display: block; 
+        }
+        .closeBtn {
+            margin-left: 5px;
+            cursor: pointer;
+        }
+        #newTabBtn, #backBtn, #forwardBtn, #goBtn, .theme-switcher {
+            overflow: hidden;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border:1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.37);
+            padding: 4px 8px;
+            cursor: pointer;
+            font: 1em Courier New;
+        }
+        #newTabBtn:hover {
+  background: rgba(255, 0, 0, 0.226);
+        }
+                #backBtn:disabled:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        }
+                        #backBtn:disabled {
+cursor: not-allowed;
+        }
+                        #backBtn:hover {
+  background: rgba(255, 0, 0, 0.226);
+        }
+                        #forwardBtn:disabled:hover {
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+        }
+                        #forwardBtn:disabled {
+cursor: not-allowed;
+        }
+                        #forwardBtn:hover {
+  background: rgba(255, 0, 0, 0.226);
+        }
+                                #goBtn:hover {
+  background: rgba(255, 0, 0, 0.226);
+        }
+        #urlInput {
+            flex: 1;
+            padding: 4px 6px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+              font: 1em Courier New;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border:1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    text-align: center;
+        }
+        #urlInput:hover{
+  background: rgba(255, 0, 0, 0.226);
+}
+#total{display: none;}
+      #as{
+        border-radius: 50%;
+      }
+    </style>
+</head>
+<body>
+        <header id="he" style="text-align: center; position: relative; top: 10px; color: red; font-size: xx-large;">[Live Chat coming soon!]</header>
+        <div id="tabBar">
+        <button id="newTabBtn">+</button>
+        <button id="backBtn" disabled>←</button>
+        <button id="forwardBtn" disabled>→</button>
+        <input type="text" id="urlInput" placeholder="Enter URL here">
+        <button id="goBtn">Go</button>
+        <a class="theme-switcher" onclick="toggleTheme()">Switch Theme</a>
+    </div>
+    <div id="total">
+    <div id="iframeContainer"></div>
+    </div>
+<script>
+    const connection = new BareMux.BareMuxConnection("/baremux/worker.js");
+    const wispUrl = (location.protocol === "https:" ? "wss" : "ws") + "://" + location.host + "/wisp/";
+
+    let tabCount = 0;
+    let iframes = [];
+    const MAX_TABS = 5;
+    const tabHistories = new Map();
+
+    function saveTabs() {
+        const tabsData = iframes.map((iframe, i) => {
+            const entry = tabHistories.get(iframe);
+            return {
+                title: iframe.tabRef.querySelector(".tabTitle").textContent,
+                history: entry.history,
+                index: entry.index,
+                active: iframe.classList.contains("active")
+            };
+        });
+        localStorage.setItem("tabs", JSON.stringify(tabsData));
+    }
+
+    function restoreTabs() {
+    const saved = localStorage.getItem("tabs");
+    if (!saved) return createTab();
+
+    const tabsData = JSON.parse(saved);
+    tabsData.forEach((tabData, i) => {
+        const iframe = document.createElement("iframe");
+        iframe.className = "iframeWindow";
+        iframe.style.display = "none";
+        document.getElementById("iframeContainer").appendChild(iframe);
+        iframes.push(iframe);
+
+        tabHistories.set(iframe, { history: tabData.history || [], index: tabData.index ?? -1 });
+        makeTab(tabData.title || `Tab ${i + 1}`, iframe);
+
+        if (tabData.index >= 0) {
+            loadUrl(iframe, tabData.history[tabData.index], false);
+        }
+
+        if (tabData.active) {
+            activateTab(iframe);
+        }
+
+        trackIframeNavigation(iframe);
+    });
+    tabCount = tabsData.length;
+}
+
+    function updateNavButtons(tab, iframe) {
+        const entry = tabHistories.get(iframe);
+        if (!entry) return;
+        document.getElementById("backBtn").disabled = entry.index <= 0;
+        document.getElementById("forwardBtn").disabled = entry.index >= entry.history.length - 1;
+    }
+
+    function loadUrl(iframe, url, push = true) {
+        if (!url) return;
+        (async () => {
+            if (!await connection.getTransport()) {
+                await connection.setTransport("/epoxy/index.mjs", [{ wisp: wispUrl }]);
+            }
+            iframe.src = __uv$config.prefix + __uv$config.encodeUrl(url);
+
+            if (push) {
+                const entry = tabHistories.get(iframe);
+                entry.history = entry.history.slice(0, entry.index + 1);
+                entry.history.push(url);
+                entry.index++;
+                updateNavButtons(iframe.tabRef, iframe);
+                saveTabs();
+            }
+        })();
+    }
+
+    function makeTab(title, iframe) {
+        const tab = document.createElement("div");
+        tab.className = "tab";
+        tab.innerHTML = `<span class="tabTitle">New Tab</span> <span class="closeBtn">×</span>`;
+
+        tab.addEventListener("click", (e) => {
+            if (e.target.classList.contains("closeBtn")) return;
+            activateTab(iframe);
+        });
+
+        tab.querySelector(".closeBtn").addEventListener("click", (e) => {
+            e.stopPropagation();
+            closeTab(iframe, tab);
+        });
+
+        const titleSpan = tab.querySelector(".tabTitle");
+        titleSpan.addEventListener("dblclick", () => {
+            const input = document.createElement("input");
+            input.type = "text";
+            input.value = titleSpan.textContent;
+            tab.replaceChild(input, titleSpan);
+            input.focus();
+            input.addEventListener("blur", () => {
+                titleSpan.textContent = input.value || "Untitled";
+                tab.replaceChild(titleSpan, input);
+                saveTabs();
+            });
+            input.addEventListener("keydown", (e) => {
+                if (e.key === "Enter") input.blur();
+            });
+        });
+
+        tabBar.insertBefore(tab, document.getElementById("newTabBtn"));
+        iframe.tabRef = tab;
+        return tab;
+    }
+
+    function createTab() {
+        if (iframes.length >= MAX_TABS) {
+            alert("Maximum of " + MAX_TABS + " tabs reached!");
+            return;
+        }
+        tabCount++;
+        const newIframe = document.createElement("iframe");
+        newIframe.className = "iframeWindow";
+        newIframe.style.display = "none";
+        iframeContainer.appendChild(newIframe);
+        iframes.push(newIframe);
+
+        tabHistories.set(newIframe, { history: [], index: -1 });
+
+        makeTab(`Tab ${tabCount}`, newIframe);
+        activateTab(newIframe);
+        trackIframeNavigation(newIframe);
+        saveTabs();
+    }
+
+    function activateTab(iframe) {
+        document.querySelectorAll(".tab").forEach(t => t.classList.remove("active"));
+        document.querySelectorAll(".iframeWindow").forEach(f => {
+            f.classList.remove("active");
+            f.style.display = "none";
+        });
+
+        iframe.classList.add("active");
+        iframe.style.display = "block";
+        iframe.tabRef.classList.add("active");
+
+        const entry = tabHistories.get(iframe);
+        if (entry && entry.index >= 0) {
+            document.getElementById("urlInput").value = entry.history[entry.index];
+        } else {
+            document.getElementById("urlInput").value = "";
+        }
+        updateNavButtons(iframe.tabRef, iframe);
+        saveTabs();
+    }
+
+    function closeTab(iframe, tab) {
+        if (iframes.length === 1) {
+            alert("Cannot close the last tab!");
+            return;
+        }
+        const index = iframes.indexOf(iframe);
+        if (index >= 0) {
+            iframes.splice(index, 1);
+            iframe.remove();
+            tab.remove();
+            if (iframes.length > 0) {
+                const newIndex = index > 0 ? index - 1 : 0;
+                activateTab(iframes[newIndex]);
+            }
+        }
+        saveTabs();
+    }
+
+    function trackIframeNavigation(iframe) {
+        let lastUrl = "";
+        setInterval(() => {
+            try {
+                const proxiedUrl = iframe.contentWindow.location.href;
+                if (!proxiedUrl.startsWith(__uv$config.prefix)) return;
+                const decoded = __uv$config.decodeUrl(proxiedUrl.replace(__uv$config.prefix, ""));
+                if (decoded && decoded !== lastUrl) {
+                    lastUrl = decoded;
+                    const entry = tabHistories.get(iframe);
+                    if (!entry) return;
+                    if (entry.history[entry.index] !== decoded) {
+                        entry.history = entry.history.slice(0, entry.index + 1);
+                        entry.history.push(decoded);
+                        entry.index++;
+                        updateNavButtons(iframe.tabRef, iframe);
+                        if (iframe.classList.contains("active")) {
+                            document.getElementById("urlInput").value = decoded;
+                        }
+                        saveTabs();
+                    }
+                }
+            } catch (e) {}
+        }, 1000);
+    }
+
+    document.getElementById("newTabBtn").onclick = createTab;
+
+    document.getElementById("goBtn").onclick = () => {
+        const input = document.getElementById("urlInput").value.trim();
+        const activeIframe = document.querySelector(".iframeWindow.active");
+        if (!activeIframe) return;
+
+        let url = input;
+        if (!url) {
+            url = "https://google.com";
+        } else if (!url.includes(".")) {
+            url = "https://www.google.com/search?q=" + encodeURIComponent(url);
+        } else if (!url.startsWith("http://") && !url.startsWith("https://")) {
+            url = "https://" + url;
+        }
+        loadUrl(activeIframe, url, true);
+        saveTabs();
+    };
+
+    document.getElementById("urlInput").addEventListener("keydown", (e) => {
+        if (e.key === "Enter") document.getElementById("goBtn").click();
+    });
+
+    document.getElementById("backBtn").onclick = () => {
+        const activeIframe = document.querySelector(".iframeWindow.active");
+        const entry = tabHistories.get(activeIframe);
+        if (entry && entry.index > 0) {
+            entry.index--;
+            loadUrl(activeIframe, entry.history[entry.index], false);
+            document.getElementById("urlInput").value = entry.history[entry.index];
+            updateNavButtons(activeIframe.tabRef, activeIframe);
+            saveTabs();
+        }
+    };
+
+    document.getElementById("forwardBtn").onclick = () => {
+        const activeIframe = document.querySelector(".iframeWindow.active");
+        const entry = tabHistories.get(activeIframe);
+        if (entry && entry.index < entry.history.length - 1) {
+            entry.index++;
+            loadUrl(activeIframe, entry.history[entry.index], false);
+            document.getElementById("urlInput").value = entry.history[entry.index];
+            updateNavButtons(activeIframe.tabRef, activeIframe);
+            saveTabs();
+        }
+    };
+
+    restoreTabs();
+
+(function () {
+
+    if (sessionStorage.getItem("reloadedOnce") === "true") {
+        sessionStorage.removeItem("reloadedOnce");
+    } else {
+        sessionStorage.setItem("reloadedOnce", "true");
+        window.addEventListener("load", () => {
+            setTimeout(() => {
+                location.reload();
+            }, 500); 
+        });
+    }
+})();
+
+</script>
+</body>
+</html>
