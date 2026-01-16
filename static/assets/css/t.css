@@ -1,0 +1,394 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap");
+
+/* ===============================
+   GLOBAL SIZING FIX
+   =============================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* ===============================
+   THEME + SIZE VARIABLES
+   =============================== */
+
+:root {
+  /* Layout sizes */
+  --tabs-height: 42px;
+  --nav-height: 48px;
+  --control-height: 34px;
+
+  /* Colors */
+  --background-color: #0b0f14;
+
+  --glass-bg-start: rgba(255, 255, 255, 0.12);
+  --glass-bg-end: rgba(255, 255, 255, 0);
+  --glass-border: rgba(255, 255, 255, 0.18);
+
+  --hover-accent: rgba(255, 0, 0, 0.25);
+
+  --text-primary: #ffffff;
+}
+
+body.light-theme {
+  --background-color: #f4f6fb;
+
+  --glass-bg-start: rgba(0, 0, 0, 0.08);
+  --glass-bg-end: rgba(0, 0, 0, 0);
+  --glass-border: rgba(0, 0, 0, 0.18);
+
+  --hover-accent: rgba(255, 0, 0, 0.22);
+
+  --text-primary: #111111;
+}
+
+/* ===============================
+   GLOBAL
+   =============================== */
+
+body {
+  margin: 0;
+  font-family: "Inter", sans-serif;
+  background: var(--background-color);
+  color: var(--text-primary);
+  overflow: hidden;
+}
+
+/* ===============================
+   TABS BAR (TOP)
+   =============================== */
+
+.nav {
+  height: var(--tabs-height);
+  min-height: var(--tabs-height);
+
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-start),
+    var(--glass-bg-end)
+  );
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+/* ===============================
+   MAIN NAVBAR
+   =============================== */
+
+.nav-bar {
+  height: var(--nav-height);
+  min-height: var(--nav-height);
+
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-start),
+    var(--glass-bg-end)
+  );
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--glass-border);
+}
+#kingvon{height: 80px; width: 80px; border-radius: 100%;}
+/* ===============================
+   NAV LAYOUT
+   =============================== */
+
+.nav-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-left,
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* ===============================
+   BUTTONS / TABS
+   =============================== */
+
+.nav-button,
+#add-tab,
+li,
+.close-tab {
+  height: var(--control-height);
+  min-height: var(--control-height);
+
+  padding: 0 12px;
+  line-height: 1;
+
+  font: 14px "Courier New", monospace;
+  cursor: pointer;
+
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-start),
+    var(--glass-bg-end)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Hover */
+.nav-button:hover,
+#add-tab:hover,
+.navpost:hover,
+li:hover,
+.close-tab:hover {
+  background: var(--hover-accent);
+}
+
+/* Active tab */
+li.active {
+  background: rgba(21, 255, 0, 0.25);
+  border-color: var(--glass-border);
+  cursor: default;
+}
+
+/* Close tab offset */
+.close-tab {
+  position: relative;
+  left: 2px;
+}
+
+/* ===============================
+   SEARCH BAR
+   =============================== */
+
+.navpost {
+  height: var(--control-height);
+  min-height: var(--control-height);
+
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-start),
+    var(--glass-bg-end)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+}
+
+.bar {
+  width: 50vw;
+  height: 100%;
+  line-height: var(--control-height);
+
+  background: none;
+  border: none;
+  outline: none;
+
+  color: var(--text-primary);
+  font: 14px "Courier New", monospace;
+}
+
+/* ===============================
+   TABS LIST
+   =============================== */
+
+ul {
+  list-style: none;
+  display: flex;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+}
+
+/* ===============================
+   FRAME CONTAINER
+   =============================== */
+
+.frame-container {
+  position: absolute;
+  top: calc(var(--tabs-height) + var(--nav-height));
+  left: 0;
+
+  width: 100%;
+  height: calc(100vh - var(--tabs-height) - var(--nav-height));
+}
+
+.frame-container iframe {
+  width: 100%;
+  height: 100%;
+  display: none;
+
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-start),
+    var(--glass-bg-end)
+  );
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border-radius: 20px;
+  border: 1px solid var(--glass-border);
+}
+
+.frame-container iframe.active {
+  display: block;
+}
+
+/* ===============================
+   FULLSCREEN MODE
+   =============================== */
+
+.fullscreen .nav,
+.fullscreen .nav-bar {
+  display: none;
+}
+
+.fullscreen .frame-container {
+  top: 0;
+  height: 100vh;
+}
+/* ===== CLOSE TAB BUTTON OVERRIDES ===== */
+
+.close-tab {
+  height: 26px;
+  min-height: 26px;
+
+  padding: 0 8px;
+  font-size: 12px;
+
+  border-radius: 12px;
+}
+
+.close-tab:hover {
+  background: rgba(0, 120, 255, 0.35);
+  border-color: rgba(0, 120, 255, 0.55);
+}
+
+.close-tab:active {
+  transform: scale(0.92);
+}
+
+
+.frame-container{
+  padding: 8px 8px 8px 8px;
+}
+/* ===== FULL GLASS-THEME PIN KEYPAD WITH ICONS ===== */
+
+#lock-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0b0f14;
+}
+
+.lock-card {
+  width: 320px;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  color: #ffffff;
+}
+
+.lock-icon { font-size: 36px; opacity: 0.85; }
+.lock-card h1 { margin:0; font-size:20px; font-weight:600; font-family:"Inter",sans-serif; }
+
+/* PIN DOTS */
+#pin-dots {
+  display: flex;
+  gap: 10px;
+  margin: 6px 0 16px;
+}
+#pin-dots span {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.18);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.2s ease;
+}
+#pin-dots span.filled {
+  background: rgba(255, 0, 0, 0.25);;
+  border: 1px solid rgba(255, 0, 0, 0.25);;
+  box-shadow: 0 0 6px rgba(255, 0, 0, 0.25);;
+}
+
+/* KEYPAD */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  width: 100%;
+}
+.keypad button {
+  font-family:"Courier New", monospace;
+  font-weight:600;
+  font-size:16px;
+  height:48px;
+  cursor:pointer;
+  border-radius:16px;
+  border:1px solid rgba(255,255,255,0.18);
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), rgba(255,255,255,0));
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #ffffff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.keypad button:hover { background: rgba(47,128,255,0.25); }
+
+.keypad .clear {
+  background: linear-gradient(135deg, rgba(255,0,0,0.12), rgba(255,0,0,0));
+  border-color: rgba(255,0,0,0.25);
+}
+.keypad .clear:hover { background: rgba(255,0,0,0.35); }
+
+.keypad .enter {
+  background: linear-gradient(135deg, rgba(0,200,50,0.12), rgba(0,200,50,0));
+  border-color: rgba(0,200,50,0.25);
+}
+.keypad .enter:hover { background: rgba(0,200,50,0.35); }
+
+
+#pin-error { height:16px; font-size:12px; color:#ff4d4d; margin-top:4px; text-align:center; }

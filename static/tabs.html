@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="referrer" content="no-referrer" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="shortcut icon" id="tab-favicon" href="favicon.png" />
+  <title>Clever | Portal</title>
+  <link rel="icon" type="image/x-icon" href="image (2).png">
+  <link rel="stylesheet" href="global.css" />
+  <link rel="stylesheet" href="assets/css/t.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    window.addEventListener("resize", navigator.keyboard.lock(["Escape"]));
+  </script>
+</head>
+
+<body id="no">
+<!-- GLASS THEME PIN LOCK SCREEN -->
+<div id="lock-screen">
+  <div class="lock-card">
+    <img id="kingvon" src="kingvon.avif"></img>
+    <h1>KingVonproxy v2</h1>
+
+    <div id="pin-dots">
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <div class="keypad">
+      <button onclick="pressKey(1)">1</button>
+      <button onclick="pressKey(2)">2</button>
+      <button onclick="pressKey(3)">3</button>
+
+      <button onclick="pressKey(4)">4</button>
+      <button onclick="pressKey(5)">5</button>
+      <button onclick="pressKey(6)">6</button>
+
+      <button onclick="pressKey(7)">7</button>
+      <button onclick="pressKey(8)">8</button>
+      <button onclick="pressKey(9)">9</button>
+
+      <button class="clear" onclick="clearPin()"><i class="fa-solid fa-delete-left"></i></button>
+      <button onclick="pressKey(0)">0</button>
+      <button class="enter" onclick="checkPin()"><i class="fa-solid fa-check"></i></button>
+    </div>
+
+    <p id="pin-error"></p>
+  </div>
+</div>
+
+
+
+  <nav class="nav" id="right-side-nav">
+    <ul id="tab-list"></ul>
+    <button title="add-tab" id="add-tab">
+      <i class="fa-solid fa-plus"></i>
+    </button>
+  </nav>
+  <div class="nav-bar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <button title="Log-Out" id="home-page" class="nav-button" onclick="Home()">
+          <i class="fa-solid fa-sign-out"></i>
+        </button>
+        <button title="Back Arrow" class="nav-button" onclick="goBack()">
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+        <button title="Forward Arrow" class="nav-button" onclick="goForward()">
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button title="Reload" onclick="reload()" class="nav-button">
+          <i class="fa-solid fa-rotate-right"></i>
+        </button>
+        <form id="fv" class="navpost" method="POST">
+          <input id="input" class="bar" placeholder="Search or enter a new URL" type="text" />
+        </form>
+      </div>
+      <div class="nav-right">
+        <button title="Fullscreen" id="fullscreen-button" class="nav-button nav-btn-right" onclick="FS()">
+          <i class="fa-solid fa-expand"></i>
+        </button>
+        <button title="Window Popout" id="popout-button" class="nav-button nav-btn-right" onclick="popout()">
+          <i class="fa-solid fa-up-right-from-square"></i>
+        </button>
+        <button title="Inspect" class="nav-button nav-btn-right" onclick="eToggle()">
+          <i class="fa-solid fa-code"></i>
+        </button>
+        <button
+  title="Toggle Theme"
+  class="nav-button nav-btn-right"
+  onclick="toggleTheme()"
+>
+  <i class="fa-solid fa-moon"></i>
+</button>
+
+      </div>
+    </div>
+  </div>
+  <div class="frame-container" id="frame-container"></div>
+  <script src="assets/js/t3.js"></script>
+  <script src="assets/mathematics/bundle.js?v=2025-04-15"></script>
+  <script src="assets/mathematics/config.js?v=2025-04-15"></script>
+<script>
+  function onTabsButtonPress() {
+    /* NAVPOST toggle (existing) */
+    const navpost = document.querySelector(".navpost");
+    if (navpost) {
+      navpost.style.top =
+        navpost.style.top === "10px" ? "6px" : "10px";
+    }
+
+    /* NAV-BUTTON toggle (NEW) */
+    const navButtons = document.querySelectorAll(".nav-button");
+    navButtons.forEach(btn => {
+      btn.style.top =
+        btn.style.top === "5px" ? "0px" : "5px";
+    });
+
+    // 🔌 Extension point (leave empty for later)
+  }
+</script>
+<script>
+  function toggleTheme() {
+    document.body.classList.toggle("light-theme");
+
+    const isLight = document.body.classList.contains("light-theme");
+
+    localStorage.setItem("theme", isLight ? "light" : "dark");
+  }
+
+  /* Restore saved theme on load */
+  (function () {
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme === "light") {
+      document.body.classList.add("light-theme");
+    }
+  })();
+</script>
+<script>
+const CORRECT_PIN = "4832"; // change this
+let enteredPin = "";
+
+function updateDots() {
+  const dots = document.querySelectorAll("#pin-dots span");
+  dots.forEach((dot,i)=>{ dot.classList.toggle("filled", i<enteredPin.length); });
+}
+
+function pressKey(num) {
+  if(enteredPin.length>=4) return;
+  enteredPin += num;
+  updateDots();
+}
+
+function clearPin() {
+  enteredPin = enteredPin.slice(0,-1);
+  updateDots();
+}
+
+function checkPin() {
+  const error = document.getElementById("pin-error");
+  if(enteredPin === CORRECT_PIN) {
+    localStorage.setItem("appUnlocked","true");
+    document.getElementById("lock-screen").style.display="none";
+  } else {
+    error.textContent="Incorrect PIN";
+    enteredPin="";
+    updateDots();
+  }
+}
+</script>
+</body>
+
+</html>
